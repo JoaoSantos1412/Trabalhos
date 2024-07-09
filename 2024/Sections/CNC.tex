@@ -1,0 +1,41 @@
+\subsubsection{Coordinate and Non-coordinate Bases}
+The basis vectors can be written as
+\begin{equation}
+e_\mu=\frac{\partial}{\partial x^\mu}=\partial_\mu
+\end{equation}
+wich then allows an arbitrary vector to be expanded as
+\begin{equation}
+V=V^\mu e_\mu=V^\mu\partial_\mu
+\end{equation}
+The distance between two nearby points is $ds=e_\mu(x) dx^\mu$, thus
+\begin{equation}
+ds^2=ds\cdot ds=(e_\mu\cdot e_\nu)dx^\mu dx^\nu=g_\mn dx^\mu dx^\nu
+\end{equation}
+where the metric tensor $g_\mn$ is defined by
+\begin{equation}
+g_\mn(x)=e_\mu(x)\cdot e_\nu(x)
+\end{equation}
+The scalar product of two vector can then be written as
+\begin{equation}
+A\cdot B=(A^\mu e_\mu)\cdot(B^\nu e_\nu)=g_\mn A^\mu B^\nu
+\end{equation}
+Likewise, a set of dual basis vectors ($e^\mu$) may be used to expand dual vectors $\omega$ as
+\begin{equation}
+\omega=\omega_\mu e^\mu
+\end{equation}
+and the scalar of two dual vectors
+\begin{equation}
+\alpha\cdot\beta=g^\mn\alpha_\mu\beta_\nu
+\end{equation}
+we can also calculate the scalar product between a vector and a dual vector
+\begin{equation}
+\omega(V)=\omega_\mu e^\mu(V^\nu e_\nu)=g_\nu^\mu\omega_\mu V^\nu =\omega_\mu V^\mu
+\end{equation}
+where
+\begin{equation}
+g^\nu_\mu=\delta_\nu^\mu=
+\begin{cases}
+1\quad\mu=\nu\\
+0\quad\mu\neq\nu
+\end{cases}
+\end{equation}

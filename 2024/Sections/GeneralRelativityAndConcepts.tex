@@ -1,0 +1,31 @@
+Let us introduce two pivotal concepts within the domain of general relativity: the notation conventions and the metric utilized throughout this paper.
+\subsection{Spacetime Notation}
+Minkowski, in order to simplify special relativity, united the three dimensions of space and the one dimension of time into the so called 4-dimensional spacetime, whose coordinates are denoted as:
+\begin{equation}
+\label{eqn:STC}
+(x^0,x^1,x^2,x^3)\equiv(ct,x,y,z)
+\end{equation}
+where the superscripts are indices (and not exponents!). The time component $(ct)$ is adjusted by the speed of light to ensure consistency in units with the other coordinates. This is also commonly written in $c=1$ units, and therefore
+\begin{equation}
+(x^0,x^1,x^2,x^3)\equiv(t,x,y,z)
+\end{equation}
+\subsection{Metric Tensor}
+\begin{equation}
+\begin{aligned}
+ds^2=\sum_{\mu\nu}\eta_{\mu\nu}dx^\mu dx^\nu&=-(dx^0)^2+(dx^1)^2+(dx^2)^2+(dx^3)^2,\\
+&=-c^2dt^2+dx^2+dy^2+dz^2.
+\end{aligned}
+\end{equation}
+The quantity $\eta_\mn$ is represented by the following diagonal matrix
+\begin{equation}
+\label{eqn:diag}
+\eta_{\mu\nu}=
+\begin{pmatrix}
+-1 & 0 & 0 & 0\\
+0 & 1 &0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+=\diag{-1,1,1,1}
+\end{equation}
+and is referred to as the metric tensor of Minkowski space. (a lot of books choose the symmetric metric $\eta_\mn=\diag{1,-1,-1,-1}$, however the one mentioned in eq.  \eqref{eqn:diag} is the most used in relativity.)

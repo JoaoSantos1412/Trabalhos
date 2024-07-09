@@ -1,0 +1,10 @@
+\subsubsection{Differentiation}
+Using a vector $\bm V$ as defined in \eqref{eqn:v} and taking its first derivative
+\begin{equation}
+\frac{\partial \bm V}{\partial x^j}=\frac{\partial V_i}{\partial x^j}\bm e_i+V^i\frac{\partial \bm e_i}{\partial x^j}
+\end{equation}
+The first term is the change in the component $V^i$ and the second term represents the change in the basis vectors $\bm e_i$. This second term is zero for a basis independent of coordinates. However, if the basis depends on the coordinates, its usually not zero. The second term is also a vector and can be represented as
+\begin{equation}
+\frac{\partial \bm e_i}{\partial x^j}=\Gamma^k_{ij}\bm e_k
+\end{equation}
+and these are called Christoffel symbols.

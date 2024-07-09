@@ -1,0 +1,23 @@
+\subsubsection{Relationship of Vectors and Dual Vectors}
+The scalar product of two arbitrary vectors $\bm A$ and $\bm B$ can be written in three different ways, as seen in \eqref{eqn:PE1}, \eqref{eqn:PE2} and \eqref{eqn:PE3}:
+\begin{equation}
+\bm A \cdot \bm B=
+\begin{cases}
+(A^i\bm e_i)\cdot(B^j\bm e_j)=g_{ij}A^iB^j\\
+(A_i\bm e^i)\cdot(B_ j\bm e^j)=g^{ij}A_iB_j\\
+(A^i\bm e_i)\cdot(B_j\bm e^j)=g_{i}^jA^iB_j=A^iB_i=A_iB^i
+\end{cases}
+\end{equation}
+Thus, $A_iB^i=g_{ij}A^iB^j$, which means the vector $\bm B$ is arbitrary and therefore
+\begin{equation}
+A_i=g_{ij}A^j
+\end{equation}
+Likewise, $A^iB_i=g^{ij}A_iB^j$, which means the vector $\bm B$ is arbitrary and therefore
+\begin{equation}
+A^i=g^{ij}A_j
+\end{equation}
+This means a contravariant component can be written in terms of the covariant components and vice versa as follows:
+\begin{align}
+A_i=\bm A\cdot \bm e_i = A^j\bm e_j\cdot \bm e_i=g_{ij}A^j\\
+A^i=\bm A\cdot \bm e^i = A_j\bm e^j\cdot \bm e^i=g^{ij}A_j
+\end{align}

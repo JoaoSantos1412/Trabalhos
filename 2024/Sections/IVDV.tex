@@ -1,0 +1,18 @@
+\subsubsection{Identification of vectors and dual vectors}
+Considering the metric tensor mentioned in the previous subsection, if we have a vector $V$, we can write a dual vector of the type $\tilde V\equiv g(V,\cdot)$:
+\begin{equation}
+\begin{aligned}
+V_\mu&\equiv \tilde V(e_\mu)=g(V,e_\mu)\\
+&=g(V^\nu e_\nu,e_mu)\\
+&=V^\nu g(e_\nu,e_\mu)\\
+&=g_\mn V^\nu
+\end{aligned}
+\end{equation}
+Likewise, since $g_\mn$ and $g^\mn$ are matrix inverses, $V^\mu=g^\mn V_\nu$ \emph{(reminder: this is an implicit sum)}. In summary, we can write
+\begin{align}
+V_\mu=g_\mn V^\nu && V^\mu=g^\mn V_nu
+\end{align}
+The same properties can be used to raise or lower any index for a tensor of any rank:
+\begin{align}
+A^\mn=g^{\mu\alpha}g^{\nu\beta}A_{\alpha\beta} && A_{\mu\nu\lambda\sigma}=g_{\mu\rho}A^\rho_{\nu\lambda\sigma}
+\end{align} 

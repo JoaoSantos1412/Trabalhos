@@ -1,0 +1,21 @@
+\subsubsection{Tensors of Higher Rank}
+Tensor products of lower-rank tensors, represented by $\otimes$, can be used to create higher-rank tensors. Tensor products of vector and dual vector spaces can be used to build a basis for these higher-rank tensors. The following is an expression for a mixed tensor $T$ of rank $(p,q)$ schematically:
+\begin{equation}
+T=T^{\mu_1\mu_2...\mu_p}_{\nu_1\nu_2...\nu_q}e_{\mu_1}\otimes e_{\mu_2} \otimes ... \otimes e_{\mu_p} \otimes e^{\nu_1}\otimes e^{\nu_2} \otimes ... \otimes e^{\nu_p}
+\end{equation}
+where $\{e_\mu\}$ is a vector basis and ${e^\nu}$ is a dual vector basis. A rank-2 tensor $T$ covariant, contravariant and mixed components are given by
+\begin{align}
+T(e_\mu,e_\nu)=T_\mn && T(e^\mu,e^\nu)=T^\mn && T(e_\mu,e^\nu)=T_\mu^\nu && T(e^\mu,e_\nu)=T^\mu_\nu 
+\end{align}
+thus, the vectors $A$ and $B$,
+\begin{equation}
+T(A,B)=T(A^\mu e_\mu,B^\nu e_\nu)=T(e_\mu,e_\nu)A^\mu B^\nu=T_\mn A^\mu B^\nu
+\end{equation}
+Finnaly, lets consider the scalar product $A\cdot B=g_\mn A^\mu B^\nu$
+\begin{equation}
+\begin{aligned}
+g(A,B)&=g(A^\mu e_\mu,B^\nu e_\nu)=g(e_\mu,e_\nu)A^\mu B^\nu\\
+&=g_\mn A^\mu B^\nu=A^\mu B_\mu\, \in \, \mathbb{R}
+\end{aligned}
+\end{equation}
+Thus, we conclude that $g_\mn$ represents a rank-2 tensor of type (0,2).

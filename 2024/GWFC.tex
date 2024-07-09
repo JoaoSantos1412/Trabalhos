@@ -1,0 +1,413 @@
+\RequirePackage{snapshot}
+\documentclass[a4paper,12pt]{extarticle}
+\usepackage{amsthm}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{Lemma}{Lemma}[section]
+\usepackage[english]{babel}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{blindtext}
+\usepackage[a4paper]{geometry}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{tocloft}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage[lastpage,user]{zref}
+\usepackage{adjustbox}
+\hypersetup{hidelinks}
+\usepackage{nicematrix}
+\usepackage{tabularx}
+\usepackage{amsmath, nccmath}
+\usepackage{titlesec}
+\usepackage{float, caption, booktabs, cellspace}
+\NiceMatrixOptions{cell-space-top-limit=5pt,cell-space-bottom-limit=5pt}
+\setlength\heavyrulewidth{0.4pt} % espessura de top and bottom %
+\setlength\lightrulewidth{0.4pt} % espessura de mid %
+\newcommand{\mn}{{\mu\nu}}
+\usepackage[a4paper]{geometry}
+%\geometry{showframe}
+\newcommand{\diag}[1]{\text{diag}(#1)}
+\numberwithin{equation}{subsection}
+\newcommand{\sign}{\text{sign}(x)}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{moresize}
+\usepackage{extsizes}
+%\usepackage[portuguese]{babel}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{adjustbox}
+\usepackage{pgfplots}
+\usepackage{pdfpages}
+\usepackage{pgfplotstable}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage{placeins}
+\hypersetup{hidelinks}
+\usepackage{nicematrix}
+\usepackage{tabularx}
+\usepackage{float, caption, booktabs, cellspace}
+\begin{document}
+\begin{center}
+{\LARGE \bf Gravitational Waves \\[.6ex] 
+\large a Fractional Calculus Approach}
+\vspace{8mm}
+
+{\large \bf João Miguel Costa Santos}
+\vspace{3mm}
+
+
+BSc student at Universidade da Beira Interior, Covilhã, Portugal \\
+e-mail: \url{joao.miguel.costa.santos@ubi.pt}
+\vspace{2mm}
+
+
+\end{center}
+\vspace{10mm}
+\noindent
+{\bf Abstract:} This paper explores the application of fractional calculus to the study of gravitational waves, providing a novel approach to understanding their behavior. We start with a detailed overview of the fundamental concepts of General Relativity, including the spacetime notation, metric tensor, and the Einstein equations. We then introduce the principles of fractional calculus, focusing on integrals and derivatives, and discuss their relevance to physical phenomena. The core of our work presents a fractional calculus perspective on gravitational waves, emphasizing the use of Riemann-Liouville, Caputo, and Riesz fractional derivatives, as well as the fractional Laplacian.\\[.5em]
+{\bf Keywords:} Gravitational Waves, Fractional Calculus,  Riemann-Liouville fractional derivatives,  Caputo fractional derivatives,  Riesz fractional derivatives, fractional Laplacian.\\
+\vspace{4mm}
+\pagenumbering{gobble}
+\tableofcontents
+\clearpage
+\newpage
+\pagestyle{headings}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\section{Notation Conventions}
+\input{Sections/GeneralRelativityAndConcepts}
+\newpage
+\section{Preliminary Concepts of GR}
+Before we start, due to the inherent complexity of gravitational waves, it is imperative to provide thorough mathematical analysis beforehand to ensure a comprehensive understanding.
+\subsection{Euclidean Geometry}
+\input{Sections/Param}
+\input{Sections/Basis}
+\input{Sections/Exp}
+\input{Sections/Vec}
+\input{Sections/Rel}
+\input{Sections/Pro}
+\input{Sections/Diff}
+%-------------------------------------------------------%
+\subsection{Non Euclidean Geometry}
+The previous section provided a mathematical foundation for Euclidean spaces ranging from 1D to 3D. However, as mentioned earlier, general relativity employs 4-vectors. Therefore, the following section will be similar to the previous one but will focus on 4-dimensional space (4-vectors).
+\subsubsection{Spacetime Coordinates}
+\input{Sections/SC}
+\input{Sections/CNC}
+\input{Sections/THR}
+\input{Sections/IVDV}
+\input{Sections/TL}
+%-------------------------------------------------------%
+%-------------------------------------------------------%
+%-------------------------------------------------------%
+%-------------------------------------------------------%
+%-------------------------------------------------------%
+%-------------------------------------------------------%
+%-------------------------------------------------------%
+%-------------------------------------------------------%
+\newpage
+\subsection{The Einstein Equations}
+Having covered the fundamentals of Non Euclidian geometry, which is crucial to General Relativity, we may now finally discuss the Einstein Equations.\\ \\
+The contraction of the Riemann tensor with the metric tensor yields the symmetric Ricci tensor $R_\mn$: 
+\begin{align}
+R_{\mu\nu}&=R_{\nu\mu}=g^{\lambda\sigma}R_{\lambda\mu\sigma\nu}=R^\sigma_{\mu\sigma\nu}\\
+&=\Gamma^\lambda_{\mu\nu,\lambda}-\Gamma^{\lambda}_{\mu\lambda,\nu}+\Gamma_{\mu\nu}^\lambda\Gamma^\sigma_{\lambda\sigma}-\Gamma_{\mu\nu}^\sigma\Gamma^\lambda_{\nu\sigma}
+\end{align}
+and so, $R$, the Ricci scalar, is simply:
+\begin{equation}
+R=R_\mu^\mu=g^{\mu\nu}R_{\mu\nu}
+\end{equation}
+The Riemann tensor obeys the Bianchi identity
+\begin{equation}
+\nabla_\lambda R_{\mu\nu\alpha\beta}+\nabla_\beta R_{\mu\nu\lambda\alpha}+\nabla_\alpha R_{\mu\nu\beta\lambda}
+\end{equation}
+We obtain the following important identity after a few more contractions of the Bianchi identity with the metric tensor.
+\begin{equation}
+\lambda_\mu G^{\mu\nu}=0
+\end{equation}
+where the symmetric Einstein tensor $G^{\mu\nu}$ is defined as
+\begin{equation}
+G^{\mu\nu}\equiv R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R
+\end{equation}
+The Einstein equations can be used to express the covariant theory of gravity:
+\begin{equation}
+G_{\mu\nu}=R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R=\frac{8\pi G}{c^4}T_{\mu\nu}
+\end{equation}
+or, in a more compact form, in $c=G=1$ units
+\begin{equation}
+G_{\mu\nu}=8\pi T_{\mu\nu}
+\end{equation}
+Another way to express the Einstein equation is the alternative form
+\begin{equation}
+R_{\mu\nu}=\frac{8\pi G}{c^4}\left(T_{\mu\nu}-\frac{1}{2}g_{\mu\nu}T^\alpha_\alpha\right)
+\end{equation}
+\newpage
+%-----------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
+\section{Fractional Calculus}
+Let us provide a brief introduction to several of the most common fractional calculus integrals and derivatives that will be utilized later on
+\subsection{Fractional Integrals}
+\begin{definition}
+The left Riemann-Liouville fractional integral and the right Riemann-Liouville fractional integral are defined, respectively, by
+\begin{equation}
+\begin{aligned}
+_aI^\alpha f(x,t)&=\frac{1}{\Gamma(\alpha)}\int_a^x(x-\xi)^{\alpha-1}f(\xi)\,d\xi\\
+I_b^\alpha f(x,t)&=\frac{1}{\Gamma(\alpha)}\int_x^b(\xi-x)^{\alpha-1}f(\xi)\,d\xi
+\end{aligned}
+\end{equation}
+where $\Gamma(\alpha)$ represents the gamma function.
+\end{definition}
+\begin{definition}
+The left and right Riemann-Liouville fractional integrals of order $\alpha$ are respectivelly
+\begin{equation}
+_aI_x^\alpha f(x,t)=\frac{1}{\Gamma(\alpha)}\int_a^x(x-\xi)^{\alpha-1}f(\xi)\,d\xi
+\end{equation}
+and
+\begin{equation}
+_xI_b^\alpha f(x,t)=\frac{1}{\Gamma(\alpha)}\int_x^b(\xi-x)^{\alpha-1}f(\xi)\,d\xi
+\end{equation}
+\end{definition}
+The Riesz fractional integral is given by
+\begin{equation}
+^R_aI_b^\alpha f(x,t)=\frac{1}{2}\left(_aI_x^\alpha f(x,t)+\; _xI_b^\alpha f(x,t)\right)
+\end{equation}
+\subsection{Fractional Derivatives}
+\begin{definition}
+The left Riemann-Liouville fractional derivative and the right Riemann-Liouville fractional derivatives are defined, respectively, by
+\begin{equation}
+\begin{aligned}
+_aD^\alpha f(x)&=\frac{1}{\Gamma(n-\alpha)}\left(\frac{d}{dx}\right)^n\int_a^x(x-\xi)^{n-\alpha-1}f(\xi)\,d\xi\\
+D_b^\alpha f(x)&=\frac{1}{\Gamma(n-\alpha)}\left(-\frac{d}{dx}\right)^n\int_x^b(\xi-x)^{n-\alpha-1}f(\xi)\,d\xi\\
+\end{aligned}
+\end{equation}
+where $\alpha>0$ and $n=[\alpha]+1$, with $[\alpha]$ denoting the integer part of $\alpha$.
+\end{definition}	
+\begin{definition}
+A couple carachteristics of the  Riemann-Liouville fractional derivatives
+\begin{equation}
+\begin{aligned}
+_aD^0 f(x)&=D_b^0 f(x)=f(x)\\
+_aD^n f(x)&=f^{(n)}(x)\\
+D_b^n f(x)&=(-1)^nf^{(n)}(x)
+\end{aligned}
+\end{equation}
+\end{definition}	
+\begin{definition}
+The left Caputo fractional derivative is
+\begin{equation}
+^C_aD^\alpha f(x)=\frac{1}{\Gamma(n-\alpha)}\int_a^x(x-\xi)^{n-\alpha-1}\left(\frac{d}{d\xi}\right)^nf(\xi)\,d\xi
+\end{equation}
+and the right Caputo derivative is
+\begin{equation}
+^CD_b^\alpha f(x)=\frac{1}{\Gamma(n-\alpha)}\int_x^b(\xi-x)^{n-\alpha-1}\left(-\frac{d}{d\xi}\right)^nf(\xi)\,d\xi
+\end{equation}
+(\textbf{Note:} by definition the Caputo fractional derivative of a constant is zero.)
+\end{definition}
+\begin{definition}
+The Riemann-Liouville fractional derivatives and Caputo fractional derivatives are connected with each other by the following relations:
+\begin{equation}
+\begin{aligned}
+^C_aD^\alpha f(x)&=\prescript{}{a}D^\alpha f(x)-\sum_{k=0}^{n-1}\frac{f^{(k)}(a)}{\Gamma(k-\alpha+1)}(x-a)^{k-\alpha}\\
+^CD_b^\alpha f(x)&=D_b^\alpha f(x)-\sum_{k=0}^{n-1}\frac{(-1)^kf^{(k)}(b)}{\Gamma(k-\alpha+1)}(b-x)^{k-\alpha}
+\end{aligned}
+\end{equation}
+\end{definition}
+\begin{definition}
+the Riesz fractional derivative is represented as
+\begin{align}
+^R_aD_b^\alpha f(x)=\frac{1}{2\cos(\pi\alpha/2)}\left(_aD^\alpha+D_b^\alpha\right)f(x)
+\end{align}
+\end{definition}
+\begin{Lemma}
+For a function $f(x)$ defined on the infinite domain $]-\infty,\infty[$, the following equality holds
+\begin{equation}
+\label{eq:lap}
+-(-\Delta)^{\alpha/2}=-\frac{1}{2\cos(\pi\alpha/2)}\left(_{-\infty}D^\alpha f(x)+D_\infty^\alpha f(x)\right)
+\end{equation}
+where $(-\Delta)^{\alpha/2}$ is the laplace operator.
+\end{Lemma}
+\noindent To succinctly summarize the most common fractional derivatives, we will present them in tabular form:
+\begin{table}[H]
+\centering
+\begin{NiceTabular}{c|l}
+\toprule
+\Block[fill=gray!10]{2-1}{Riemann-Liouville} & $_aD^\alpha f(x)=\frac{1}{\Gamma(n-\alpha)}\left(\frac{d}{dx}\right)^n\int_a^x(x-\xi)^{n-\alpha-1}f(\xi)\,d\xi $\\
+ & $D_b^\alpha f(x)=\frac{1}{\Gamma(n-\alpha)}\left(-\frac{d}{dx}\right)^n\int_x^b(\xi-x)^{n-\alpha-1}f(\xi)\,d\xi$\\ \midrule
+ \Block[fill=gray!10]{2-1}{Caputo} & $^C_aD^\alpha f(x)=\frac{1}{\Gamma(n-\alpha)}\int_a^x(x-\xi)^{n-\alpha-1}\left(\frac{d}{d\xi}\right)^nf(\xi)\,d\xi$\\
+  & $^CD_b^\alpha f(x)=\frac{1}{\Gamma(n-\alpha)}\int_x^b(\xi-x)^{n-\alpha-1}\left(-\frac{d}{d\xi}\right)^nf(\xi)\,d\xi$\\ \midrule
+\Block[fill=gray!10]{1-1}{Riesz} & $^R_aD_b^\alpha f(x)=\frac{1}{2\cos(\pi\alpha/2)}\left(_aD^\alpha+D_b^\alpha\right)f(x)$\\ \bottomrule
+\end{NiceTabular}
+\end{table}
+\section{Gravitational Waves}
+\subsection{Linearized Gravity}
+The Einstein equation can be expressed in the equivalent form
+\begin{equation}
+\label{eq:einstein}
+R_\mn=8\pi G\left(T_\mn-\frac{1}{2}g_\mn T_\lambda^\lambda\right)
+\end{equation}
+Due to the nonlinear nature of this equation, gravitational waves themselves act as a source of spacetime curvature, making it challenging to obtain wave solutions in the general case. However, in many situations, gravitational waves can be approximated as weak perturbations of the spacetime geometry, allowing the metric to be expressed in the form
+\begin{equation}
+\label{eq:perturbation}
+g_\mn(x)=\eta_\mn+h_\mn(x)
+\end{equation}
+where $\eta_\mn$ represents the metric of flat Minkowski space and $h_\mn$ is a small perturbation. The linearized vacuum Einstein equation is then derived by substituting \eqref{eq:perturbation} into the vacuum Einstein equation
+\begin{equation}
+\label{eq:vacuum}
+R_\mn=0
+\end{equation}
+obtained from \eqref{eq:einstein} by setting the stree-energy tensor $T_\mn$ to zero, and expanding the resulting equations to first order in $h_\mn$.
+\newpage
+\subsection{Linearized Curvature Tensor}
+The Ricci curvature tensor $R_\mn$ appearing in \eqref{eq:vacuum} is given by 
+\begin{equation}
+\label{eq:Ricci}
+R_\mn=\Gamma^\gamma_{\mn,\gamma}-\Gamma^\gamma_{\mu\gamma,\nu}+\Gamma^\gamma_{\mn}\Gamma^\sigma_{\gamma\sigma}-\Gamma^\sigma_{\mu\gamma}\Gamma^\gamma_{\nu\sigma}
+\end{equation}
+where the Cristoffel symbols $\Gamma^\gamma_\mn$ are related to the metric tensor $g_\mn$ by
+\begin{equation}
+\Gamma^\gamma_\mn=\frac{1}{2}g^{\gamma\delta}\left(\frac{\partial g_{\nu\delta}}{\partial x^\mu}+\frac{\partial g_{\mu\delta}}{\partial x^\nu}-\frac{\partial g_\mn}{\partial x^\delta}\right)
+\end{equation}
+To zeroth order in $h_\mn$ the Christoffel coefficients vanish and so does $R_\mn$. To the first order in $h_\mn$
+\begin{equation}
+\label{eq:dG}
+\delta \Gamma^\gamma_\mn=\frac{1}{2}\eta^{\gamma\delta}\left(\frac{\partial h_{\nu\delta}}{\partial x^\mu}+\frac{\partial h_{\mu\delta}}{\partial x^\nu}-\frac{\partial h_\mn}{\partial x^\delta}\right)
+\end{equation}
+The last two termn in \eqref{eq:Ricci} are quadratic in $h$ and can therefore be discarded, resulting in
+\begin{equation}
+\label{eq:dR}
+\delta R_\mn=\frac{\partial(\delta\Gamma^\lambda_\mn)}{\partial x^\lambda}-\frac{\partial(\delta\Gamma^\gamma_{\mu\lambda})}{\partial x^\nu}+\mathcal{O}(h^2)
+\end{equation}
+to first order in $h$.
+\subsection{Wave equation}
+Substitution of \eqref{eq:dG} in \eqref{eq:dR} results in
+\begin{equation}
+\delta R_\mn=\frac{1}{2}(-\Box h_\mn+\partial_\mu V_\nu+\partial_\nu V_\mu)
+\end{equation}
+where the 4-dimensional Laplacian operator (d'Alembertian operator) is defined as
+\begin{equation*}
+\Box=-\frac{\partial^2}{\partial t^2}+\nabla^2
+\end{equation*}
+with $\partial_\mu=\partial/\partial x^\mu$, and the $V_\nu$ are defined through
+\begin{equation}
+\begin{aligned}
+V_\nu&=\partial_\lambda h_\nu^\lambda-\frac{1}{2}\partial_\nu h_\lambda^\lambda\\
+&=\partial_\lambda \eta^{\lambda\delta}h_{\delta\nu}-\frac{1}{2}\partial_\nu \eta^{\lambda\delta}h_{\delta\lambda}
+\end{aligned}
+\end{equation}
+Thus, the vacuum Einstein equation yields
+\begin{equation}
+\label{eq:vac}
+\Box h_\mn-\partial_\mu V_\nu-\partial_\nu V_\mu=0
+\end{equation}
+\subsection{Gauge Transformations}
+Keeping in mind gauge invariance, we may apply certain gauge transformations to solve the last equation in the previous section, which will preserve $\eta_\mn$ and simply modify the form of $h_\mn$.
+\begin{equation}
+x^\mu\to x^{'\mu}=x^\mu+\epsilon^\mu(x)
+\end{equation}
+where $\epsilon^\mu(x)$ is similar in size to $h_\mn$, the metric is then changed
+\begin{equation}
+\begin{aligned}
+g_\mn(x)&=\eta_\mn+h_\mn(x)\to\eta_\mn+h^{'}_\mn(x)\\
+&=\eta_\mn+h_\mn(x)-\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu
+\end{aligned}
+\end{equation}
+The transformation $h_\mn \to h^{'}_\mn$ is
+\begin{equation}
+h^{'}_\mn=h_\mn-\partial_\mu\epsilon_\nu-\partial_\nu\epsilon_\mu
+\end{equation}
+is called a gauge transformation (If $h_\mn$ is a solution to \eqref{eq:vac} than so is $h^{'}_\mn$)\\
+\\
+Adopting a standard gauge choice, akin to selecting the Lorentz gauge in electromagnetism, allows for the linearized vacuum gravitational equations to be replaced by the following two equations:
+\begin{align}
+\Box \overline h_\mn(x)&=\left(-\frac{\partial^2}{\partial t^2}+\nabla^2\right)\overline h_\mn=0 \label{eq:waveqn}\\[.5ex]
+&\partial_\nu\overline h^\mn(x)=0 \label{eq:gauge}
+\end{align}
+where \eqref{eq:waveqn} is a wave equation corresponding to the linearized Einstein equation, \eqref{eq:gauge} is a Lorentz gauge constraint, and the trace-reversed amplitude is defined by
+\begin{equation}
+\label{eq:trac}
+\overline h_\mn=h_\mn-\frac{1}{2}\eta_\mn h
+\end{equation}
+where $h=h_\alpha^\alpha$ is the trace.
+\subsection{Weak Gravitational Waves}
+Solutions of \eqref{eq:waveqn} and \eqref{eq:gauge} are expected to take the form of a superposition of plane-wave components, expressed as
+\begin{equation}
+\overline h_\mn(x)=\alpha_\mn e^{ik\cdot x}=\alpha_\mn e^{ik_\alpha x^\alpha}
+\end{equation}
+where the polarization tensor $a_\mn$ can be represented by a constant $4\times 4$ matrix and $k$ denotes the 4-wavevector ($k^\mu=(\omega/c,\bm k$)), where $\omega$ represents the angular frequency of the wave.\\
+To simplify the mathematical analysis, let us consider a gravitational wave propagating solely in the $x$-direction.
+\begin{equation}
+\label{eq:z}
+\overline h_\mn(x)=\overline h_\mn(t,x)=\alpha_\mn e^{i(kx-\omega t)}
+\end{equation}
+The linearized Einstein equation then simply becomes
+\begin{equation}
+\Box \overline h_\mn(t,z)=\left(-\frac{\partial^2}{\partial t^2}+\frac{\partial^2}{\partial x^2}\right)\overline h_\mn=0
+\end{equation}
+\subsection{A Factional Calculus Approach}
+\subsubsection{First method}
+Utilizing the previously defined Laplacian operator \eqref{eq:lap} he d'Alembertian operator simplifies to (accounting solely for fractional calculus in the spatial part to simplify the analysis):
+\begin{equation}
+\Box_\alpha f=-\frac{\partial^2f}{\partial t^2}+\frac{1}{2\cos(\pi\alpha/2)}\left(_{-\infty}D^\alpha f+D_\infty^\alpha f\right)
+\end{equation}
+Let's explore whether $h_\mn=\alpha_\mn e^{i(kx-\omega t)}$ still constitutes a type of solution for the wave equation. Given that in the preceding section, the $x$-direction was chosen, the linearized Einstein equation simplifies to
+\begin{equation*}
+\begin{aligned}
+\Box_\alpha \overline h_\mn(t,x)&=\left(-\frac{\partial^2 h_\mn}{\partial t^2}+\frac{1}{2\cos(\pi\alpha/2)}\left(_{-\infty}D^\alpha h_\mn+D_\infty^\alpha h_\mn\right)\right)=0\\
+2\cos(\pi\alpha/2)\frac{\partial^2 h_\mn}{\partial t^2}&=\frac{1}{\Gamma(n-\alpha)}\left(\frac{d}{dx}\right)^n\int_{-\infty}^x(x-\xi)^{n-\alpha-1}h_\mn(t,\xi)\,d\xi\\
+&+\frac{1}{\Gamma(n-\alpha)}\left(-\frac{d}{dx}\right)^n\int_x^\infty(\xi-x)^{n-\alpha-1}h_\mn(t,\xi)\,d\xi
+\end{aligned}
+\end{equation*}
+if we choose $1<\alpha<2$, then $n=2$ and this simplifies a lot
+\begin{align*}
+2\cos(\pi\alpha/2)\frac{\partial^2 h_\mn}{\partial t^2}&=\frac{1}{\Gamma(2-\alpha)}\frac{d^2}{dx^2}\Biggl[\int_{-\infty}^x(x-\xi)^{1-\alpha}h_\mn(t,\xi)\,d\xi\\
+&+\int_x^\infty(\xi-x)^{1-\alpha}h_\mn(t,\xi)\,d\xi\Biggr]\\
+2\cos(\pi\alpha/2)\frac{\partial^2 h_\mn}{\partial t^2}&=\frac{1}{\Gamma(2-\alpha)}\frac{d^2}{dx^2}\Biggl[\int_{-\infty}^x(x-\xi)^{1-\alpha}\alpha_\mn e^{i(k\xi-\omega t)}\,d\xi\\
+&+\int_x^\infty(\xi-x)^{1-\alpha}\alpha_\mn e^{i(k\xi-\omega t)}\,d\xi\Biggr]\\
+2\cos(\pi\alpha/2)\frac{\partial^2 h_\mn}{\partial t^2}&=\frac{\alpha_\mn e^{-i\omega t}}{\Gamma(2-\alpha)}\frac{d^2}{dx^2}\Biggl[\int_{-\infty}^x(x-\xi)^{1-\alpha}e^{ik\xi}\,d\xi\\
+&+\int_x^\infty(\xi-x)^{1-\alpha}e^{ik\xi}\,d\xi\Biggr]
+\end{align*}
+However, upon reaching this final equation, manual solving becomes exceedingly challenging. As of today, only a limited number of programs possess the capability to compute derivatives of fractional order, and even these are confined to a select few functions. Consequently, it remains uncertain whether $h_\mn=\alpha_\mn e^{i(kx-\omega t)}$ would still be a solution within the realm of fractional calculus.
+\subsubsection{Second method}
+Let's consider the scenario where only the right-side Caputo derivatives are utilized, as these can be calculated using available programs. Additionally, we will also take fractional calculus into account for the time component.
+\begin{align*}
+&\frac{1}{\Gamma(n-\alpha)}\int_0^\infty(\xi-x)^{n-\alpha-1}\left(-\frac{d}{d\xi}\right)^nf(\xi,x)\,d\xi=\\&\hspace{2cm}=\frac{1}{\Gamma(n-\alpha)}\int_0^\infty(\xi-x)^{n-\alpha-1}\left(-\frac{d}{d\xi}\right)^nf(t,\xi)\,d\xi
+\end{align*}
+Once again let's take $1<\alpha<2$ to simplify things
+\begin{align*}
+\int_0^\infty(\xi-x)^{1-\alpha}\frac{d^2}{d\xi^2}f(\xi,x)\,d\xi=\int_0^\infty(\xi-x)^{1-\alpha}\frac{d^2}{d\xi^2}f(t,\xi)\,d\xi
+\end{align*}
+Let's revisit whether $h_\mn=\alpha_\mn e^{i(kx-\omega t)}$ satisfies this equation. This particular Caputo derivative can be computed using Mathematica. Given that one of the conditions stipulates $1<\alpha<2$ let's select $\alpha=3/2$, the result will then be
+\begin{equation}
+\label{eq:sol}
+\begin{fleqn}
+\begin{aligned}
+&\alpha_\mn\left(\frac{e^{ikx}}{2\sqrt \pi t^{3/2}}+\frac{ie^{ikx}\omega}{\sqrt \pi \sqrt t}+\frac{e^{i(kx-\omega t)}(-it\omega)^{3/2}(1-Q(-3/2,-i\omega t))}{t^{3/2}}\right)=\\
+&=\alpha_\mn\left(\frac{e^{-i\omega t}}{2\sqrt \pi x^{3/2}}+\frac{ie^{-i\omega t}k}{\sqrt \pi \sqrt x}+\frac{e^{i(kx-\omega t)}(ikx)^{3/2}(1-Q(-3/2,ikx))}{x^{3/2}}\right)
+\end{aligned}
+\end{fleqn}
+\end{equation}
+where $Q(\alpha,x)$ is the regularized gamma function
+\begin{equation*}
+Q(\alpha,x)=\frac{\Gamma(\alpha,x)}{\Gamma(\alpha)}
+\end{equation*}
+Thus, $h_\mn=\alpha_\mn e^{i(kx-\omega t)}$ constitutes a solution to the gravitational wave equation if and only if \eqref{eq:sol} is satisfied, a task that is also quite challenging to perform manually.
+\section{Conclusions}
+Unfortunately, there isn't much more that can be done than this because the equations that fractional calculus produces are too complicated to solve by hand. This is all I could do because there isn't any software or programming language available right now that can calculate these kind of equations.
+\newpage
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{GWFC}
+\end{document}
